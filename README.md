@@ -2,7 +2,7 @@
 
 This Anki add-on adds a custom search modifier: `limit:x`.
 
-When you include `limit:x` in a search query, Anki will use only the first `x` matching cards or notes from the current results.
+When you include `limit:x` in a search query, Anki will use only the `x` matching cards or notes that are closest in queue position.
 
 Examples:
 
@@ -14,7 +14,8 @@ Examples:
 
 - `limit:x` is removed before the normal Anki search runs.
 - The remaining query is searched as usual.
-- The add-on trims the final result list to the first `x` items.
+- Matching cards are ranked by queue state and due position so the add-on prefers cards you are likely to see sooner.
+- Matching notes are ranked by the earliest matching card attached to each note.
 - This works with both card and note results in the Browser.
 - It also applies to other add-ons or tools that call Anki collection search methods such as `find_notes()` or `find_cards()` with a query containing `limit:x`.
 

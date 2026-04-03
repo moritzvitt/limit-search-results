@@ -10,6 +10,7 @@ The format is based on Keep a Changelog and this project follows semantic versio
 
 - Replaced the starter template metadata and documentation with `Limit Search Results` add-on content.
 - Simplified the add-on configuration to an empty default config because the add-on currently has no user-facing settings.
+- Changed `limit:x` result selection to prefer cards with the closest queue position and to rank notes by their earliest matching card.
 
 ### Added
 
