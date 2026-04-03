@@ -2,7 +2,7 @@
 
 This Anki add-on adds a custom search modifier: `limit:x`.
 
-When you include `limit:x` in a search query, Anki will use only the `x` matching cards or notes that are closest in queue position.
+When you include `limit:x` in a search query, Anki keeps only the `x` matching cards or notes that are closest in queue position.
 
 Examples:
 
@@ -21,6 +21,12 @@ Examples:
 
 If you search with only `limit:x`, the add-on applies the limit to all matching results.
 
+## Why This Is Useful
+
+- Review the next few matching cards instead of a long unordered result list.
+- Keep note searches focused on notes whose matching cards are due sooner.
+- Reuse the same `limit:x` query in Browser searches and collection API calls.
+
 ## Files
 
 - Main logic: [`addon.py`](./addon.py)
@@ -34,5 +40,11 @@ If you search with only `limit:x`, the add-on applies the limit to all matching 
 To package manually:
 
 ```bash
-zip -r limit-search-results.ankiaddon . -x './.git/*' './.vscode/*' './__pycache__/*' './.DS_Store'
+zip -r limit-search-results.ankiaddon \
+  __init__.py \
+  addon.py \
+  manifest.json \
+  config.json \
+  config.md \
+  LICENSE
 ```
