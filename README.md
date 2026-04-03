@@ -1,62 +1,37 @@
-# Anki Add-on Starter Repo
+# Limit Search Results
 
-A clean starter template for building future Anki add-ons.
+This Anki add-on adds a custom search modifier: `limit:x`.
 
-This repository is designed to give you the repeatable pieces you usually want at the beginning of an add-on project:
+When you include `limit:x` in a search query, Anki will use only the first `x` matching cards or notes from the current results.
 
-- a minimal runnable add-on skeleton
-- manifest and config files
-- changelog and release-description docs
-- VS Code tasks for validation and packaging
-- a lightweight documentation structure
+Examples:
 
-## Included Files
+- `deck:Spanish limit:10`
+- `tag:important is:new limit:25`
+- `note:Basic limit:5`
 
-```text
-starter-repo/
-├── __init__.py
-├── addon.py
-├── manifest.json
-├── config.json
-├── config.md
-├── CHANGELOG.md
-├── LICENSE
-├── .gitignore
-├── .editorconfig
-├── .vscode/
-└── docs/
-```
+## How It Works
 
-## How To Use This Template
+- `limit:x` is removed before the normal Anki search runs.
+- The remaining query is searched as usual.
+- The add-on trims the final result list to the first `x` items.
+- This works with both card and note results in the Browser.
+- It also applies to other add-ons or tools that call Anki collection search methods such as `find_notes()` or `find_cards()` with a query containing `limit:x`.
 
-1. Rename the folder to your add-on package name.
-2. Update [`manifest.json`](./manifest.json) with your package and display name.
-3. Replace the sample menu action in [`addon.py`](./addon.py) with your real hooks and behavior.
-4. Adjust [`config.json`](./config.json) and [`config.md`](./config.md) to match your add-on settings.
-5. Update [`docs/release-description.md`](./docs/release-description.md) before publishing.
+If you search with only `limit:x`, the add-on applies the limit to all matching results.
 
-## Development Notes
+## Files
 
-- Anki loads the add-on from the folder root and executes [`__init__.py`](./__init__.py).
-- Keep add-on code in small focused modules as the project grows.
-- Use the VS Code tasks to validate Python files and package a `.ankiaddon` archive.
+- Main logic: [`addon.py`](./addon.py)
+- Add-on entry point: [`__init__.py`](./__init__.py)
+- Manifest: [`manifest.json`](./manifest.json)
+- Config notes: [`config.md`](./config.md)
+- Release text: [`docs/release-description.md`](./docs/release-description.md)
 
 ## Packaging
 
-The provided VS Code task creates a `.ankiaddon` zip archive named after the repository folder.
-
-If you package manually:
+To package manually:
 
 ```bash
-zip -r starter-repo.ankiaddon . -x './.git/*' './.vscode/*' './__pycache__/*' './.DS_Store'
+zip -r limit-search-results.ankiaddon . -x './.git/*' './.vscode/*' './__pycache__/*' './.DS_Store'
 ```
-
-## Docs
-
-- Overview: [`docs/README.md`](./docs/README.md)
-- Architecture notes: [`docs/architecture/overview.md`](./docs/architecture/overview.md)
-- Release text draft: [`docs/release-description.md`](./docs/release-description.md)
-
-## License
-
-This template includes the MIT License in [`LICENSE`](./LICENSE). Update the copyright line if needed.

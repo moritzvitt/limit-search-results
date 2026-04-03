@@ -1,27 +1,5 @@
-# Starter Repo Config
+# Configuration
 
-This add-on stores its configuration as a JSON dictionary.
+This add-on currently has no user-facing configuration.
 
-## Keys
-
-### `enabled`
-
-Global on/off switch for the add-on.
-
-### `debug`
-
-When `true`, your add-on can log extra debug information.
-
-### `example_note_types`
-
-Optional list of note type names used by your add-on.
-
-Example:
-
-```json
-{
-  "enabled": true,
-  "debug": false,
-  "example_note_types": ["Basic", "Cloze"]
-}
-```
+[`config.json`](./config.json) is kept as an empty JSON object so the project stays compatible with the standard Anki add-on layout.

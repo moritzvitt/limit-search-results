@@ -1,11 +1,13 @@
-# Starter Repo Add-on
+# Limit Search Results
 
-Replace this text with the release description you want to publish on AnkiWeb or GitHub.
+Limit the number of results shown in Anki's Browser with a simple search modifier.
 
-Suggested sections:
+Use `limit:x` in the Browser search bar to show only the first `x` matching cards or notes.
 
-- What the add-on does
-- Main features
-- Who it helps
-- Configuration notes
-- Compatibility notes
+Examples:
+
+- `deck:Default limit:20`
+- `tag:marked limit:5`
+- `is:new limit:50`
+
+The add-on keeps Anki's normal search behavior and ordering, then trims the final result list.

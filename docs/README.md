@@ -1,9 +1,6 @@
 # Docs
 
-This folder is for project documentation that should stay close to the codebase.
+Documentation for the Limit Search Results add-on lives here.
 
-Suggested usage:
-
-- `architecture/` for runtime design notes
-- `release-description.md` for marketplace or release text
-- troubleshooting, compatibility, or implementation notes as the add-on grows
+- `architecture/overview.md` explains how the browser search hooks are used
+- `release-description.md` contains a short release-ready summary for publishing
