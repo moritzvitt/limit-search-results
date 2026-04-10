@@ -1,0 +1,6 @@
+site_name: Limit Search Results
+docs_dir: docs
+
+nav:
+  - Overview: README.md
+  - Architecture Overview: architecture/overview.md
