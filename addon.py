@@ -5,11 +5,26 @@ import re
 from anki.collection import Collection
 from aqt import gui_hooks, mw
 from aqt.browser import SearchContext
+from aqt.utils import showInfo
+
+from . import shared_menu
 
 LIMIT_RE = re.compile(r"(^|\s)limit:(\d+)\b", re.IGNORECASE)
 LIMIT_METADATA_KEY = "limit_search_results.limit"
 _ORIGINAL_FIND_NOTES = Collection.find_notes
 _ORIGINAL_FIND_CARDS = Collection.find_cards
+ADDON_MENU_NAME = "Limit Search Results"
+
+
+def _show_usage_help() -> None:
+    showInfo(
+        "Use the custom search modifier `limit:x` in Browser searches or collection queries.\n\n"
+        "Examples:\n"
+        "- deck:Spanish limit:10\n"
+        "- tag:important is:new limit:25\n"
+        "- note:Basic limit:5",
+        parent=mw,
+    )
 
 
 def _extract_limit(search: str) -> tuple[str, int | None]:
@@ -178,6 +193,12 @@ def _patch_collection_search() -> None:
 
 
 def register() -> None:
+    if mw is not None:
+        shared_menu.add_action_to_addon_menu(
+            addon_name=ADDON_MENU_NAME,
+            action_text="How to Use limit:x",
+            callback=_show_usage_help,
+        )
     _patch_collection_search()
     gui_hooks.browser_will_search.append(_prepare_limit_search)
     gui_hooks.browser_did_search.append(_apply_limit_to_results)
