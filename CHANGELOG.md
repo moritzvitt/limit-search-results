@@ -14,6 +14,7 @@ The format is based on Keep a Changelog and this project follows semantic versio
 ### Changed
 
 - Added a `Moritz Add-ons -> Limit Search Results` help entry that explains the `limit:x` query modifier from the shared add-on menu.
+- Updated the bundled `shared_menu.py` helper so this add-on can participate in a shared `Moritz Add-ons` top-level menu inside Browser windows too.
 
 ## 0.2.0 - 2026-04-03
 
