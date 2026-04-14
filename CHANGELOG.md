@@ -8,6 +8,7 @@ The format is based on Keep a Changelog and this project follows semantic versio
 
 ### Added
 
+- Bundled a reusable `shared_menu.py` helper so this add-on can join the shared `Moritz Add-ons` menu if it later adds main-window actions.
 - MkDocs configuration for the shared add-on documentation site so this repo's docs can be included in the combined GitHub Pages build.
 
 ## 0.2.0 - 2026-04-03
